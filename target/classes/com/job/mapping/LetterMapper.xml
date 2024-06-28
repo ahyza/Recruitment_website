@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.job.mapper.LetterMapper">
+	<!-- Result Map -->
+	<resultMap id="baseResultMap" type="com.job.model.Letter">
+        <result column="id" property="id"/>
+        <result column="letterTitle" property="letterTitle"/>
+        <result column="letterContent" property="letterContent"/>
+        <result column="letterSend" property="letterSend"/>
+        <result column="letterReceive" property="letterReceive"/>
+        <result column="letterStatus" property="letterStatus"/>
+        <association property="send" column="letterSend" select="com.job.mapper.UserMapper.queryById"></association>
+        <association property="receive" column="letterReceive" select="com.job.mapper.UserMapper.queryById"></association>
+	</resultMap>
+
+
+	<!-- table name -->
+	<sql id="table_name">
+		db_letter
+	</sql>
+	<!-- property table all fields -->
+    <sql id="base_column_list">
+			id,
+			letterTitle,
+			letterContent,
+			letterSend,
+			letterReceive,
+			letterStatus
+    </sql>
+    <sql id="update_clause">
+        <trim suffixOverrides=",">
+            <if test="letterTitle != null and letterTitle !=''">
+                letterTitle=#{letterTitle},
+            </if>
+            <if test="letterContent != null and letterContent !=''">
+                letterContent=#{letterContent},
+            </if>
+            <if test="letterSend != null">
+                letterSend=#{letterSend},
+            </if>
+            <if test="letterReceive != null">
+                letterReceive=#{letterReceive},
+            </if>
+            <if test="letterStatus != null">
+                letterStatus=#{letterStatus},
+            </if>
+        </trim>
+    </sql>
+    <sql id="query_where_clause">
+        where 1=1
+        <trim suffixOverrides=",">
+            <if test="id != null">
+                and id=#{id}
+            </if>
+            <if test="letterTitle != null and letterTitle !=''">
+                and letterTitle=#{letterTitle}
+            </if>
+            <if test="letterContent != null and letterContent !=''">
+                and letterContent=#{letterContent}
+            </if>
+            <if test="letterSend != null">
+                and letterSend=#{letterSend}
+            </if>
+            <if test="letterReceive != null">
+                and letterReceive=#{letterReceive}
+            </if>
+            <if test="letterStatus != null">
+                and letterStatus=#{letterStatus}
+            </if>
+        </trim>
+    </sql>
+    <insert id="save" parameterType="Object" >
+        insert into
+        <include refid="table_name" />
+        (
+			letterTitle,
+			letterContent,
+			letterSend,
+			letterReceive,
+			letterStatus
+        )
+        values
+        (
+			#{letterTitle},
+			#{letterContent},
+			#{letterSend},
+			#{letterReceive},
+			#{letterStatus}
+        )
+    </insert>
+
+    <select id="queryById" resultMap="baseResultMap" parameterType="Object">
+        select
+        <include refid="base_column_list" />
+        from <include refid="table_name" /> where id = #{id}
+    </select>
+
+    <select id="queryAll" resultMap="baseResultMap" parameterType="Object">
+        select
+        <include refid="base_column_list" />
+        from <include refid="table_name" />
+    </select>
+
+    <select id="queryByCount" resultType="java.lang.Integer" parameterType="Object">
+        select count(1) from
+        <include refid="table_name" />
+        <include refid="query_where_clause" />
+    </select>
+
+    <select id="queryByList" resultMap="baseResultMap"	parameterType="Object">
+        select
+        <include refid="base_column_list"/>
+        from
+        <include refid="table_name" />
+        <include refid="query_where_clause"/>
+        order by id desc
+		${pageQueryCondition}
+    </select>
+
+    <select id="queryByLetter" resultMap="baseResultMap"	parameterType="Object">
+        select
+        <include refid="base_column_list"/>
+        from
+        <include refid="table_name" />
+        <include refid="query_where_clause"/>
+        order by id desc
+    </select>
+
+    <update id="update" parameterType="Object" >
+        update <include refid="table_name" /> set <include refid="update_clause" /> where id = #{id}
+    </update>
+
+    <update id="updateResult" parameterType="Object" >
+        update <include refid="table_name" /> set <include refid="update_clause" /> where id = #{id}
+    </update>
+
+	<delete id="deleteById" parameterType="Object">
+		delete from <include refid="table_name" /> where id = #{id}
+	</delete>
+
+</mapper>   

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>groupId</groupId>
+  <artifactId>JobSys</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <dependencies>
+
+    <!-- MyBatis-Spring 依赖 -->
+    <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis-spring</artifactId>
+      <version>2.0.6</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>4.0.1</version> <!-- 版本号可能不同 -->
+      <scope>provided</scope> <!-- 这表示Servlet容器提供该依赖项，不需要打包到WAR文件中 -->
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+
+
+    <!-- MyBatis 依赖 -->
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis</artifactId>
+      <version>3.5.10</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.1.2</version>
+    </dependency>
+
+    <!-- Druid 依赖 -->
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>druid</artifactId>
+      <version>1.2.6</version>
+    </dependency>
+
+    <!-- MySQL 驱动 -->
+
+    <!--        <dependency>-->
+    <!--            <groupId>mysql</groupId>-->
+    <!--            <artifactId>mysql-connector-java</artifactId>-->
+    <!--            <version>8.0.26</version>-->
+    <!--        </dependency>-->
+    <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>5.1.38</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-jdbc</artifactId>
+      <version>5.3.10</version> <!-- 版本号可能不同 -->
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+      <version>5.3.20</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+
+
+    <!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+
+
+  </dependencies>
+  <!--    <build>-->
+  <!--        　　<resources>-->
+  <!--        　　　　<resource>-->
+  <!--        　　　　　　　　<directory>src/main/java</directory>-->
+  <!--        　　　　　　<includes>-->
+  <!--        　　　　　　　　<include>**/*.xml</include>-->
+  <!--        　　　　　　</includes>-->
+  <!--        　　　　</resource>-->
+  <!--        　　　　<resource>-->
+  <!--        　　　　　　<directory>src/main/resources</directory>-->
+  <!--        　　　　</resource>-->
+  <!--        　　</resources>-->
+  <!--    </build>-->
+  <!-- 项目打包时会将java目录中的*.xml文件也进行打包 -->
+  <build>
+    <resources>
+      <resource>
+        <directory>src/main/java</directory>
+        <includes>
+          <include>**/*.xml</include>
+        </includes>
+        <filtering>false</filtering>
+      </resource>
+    </resources>
+  </build>
+
+</project>

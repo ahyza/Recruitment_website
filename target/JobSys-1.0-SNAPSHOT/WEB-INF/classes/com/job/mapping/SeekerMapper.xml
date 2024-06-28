@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.job.mapper.SeekerMapper">
+	<!-- Result Map -->
+	<resultMap id="baseResultMap" type="com.job.model.Seeker">
+        <result column="id" property="id"/>
+        <result column="seekerName" property="seekerName"/>
+        <result column="seekerGender" property="seekerGender"/>
+        <result column="seekerBirth" property="seekerBirth"/>
+        <result column="seekerMarry" property="seekerMarry"/>
+        <result column="seekerEducation" property="seekerEducation"/>
+        <result column="seekerEmail" property="seekerEmail"/>
+        <result column="seekerAddress" property="seekerAddress"/>
+        <result column="seekerOnjob" property="seekerOnjob"/>
+        <result column="seekerImag" property="seekerImag"/>
+        <result column="seekerResume" property="seekerResume"/>
+        <result column="seekerUserid" property="seekerUserid"/>
+        <result column="seekerHj" property="seekerHj"/>
+        <result column="seekerZzd" property="seekerZzd"/>
+        <result column="seekerEvaluation" property="seekerEvaluation"/>
+        <result column="seekerReward" property="seekerReward"/>
+        <result column="seekerQwgzlx" property="seekerQwgzlx"/>
+        <result column="seekerQwgzdd" property="seekerQwgzdd"/>
+        <result column="seekerQwxz" property="seekerQwxz"/>
+        <result column="seekerGzjl" property="seekerGzjl"/>
+        <result column="seekerXmjy" property="seekerXmjy"/>
+        <result column="seekerWydj" property="seekerWydj"/>
+	</resultMap>
+
+
+	<!-- table name -->
+	<sql id="table_name">
+		db_seeker
+	</sql>
+	<!-- property table all fields -->
+    <sql id="base_column_list">
+			id,
+			seekerName,
+			seekerGender,
+			seekerBirth,
+			seekerMarry,
+			seekerEducation,
+			seekerEmail,
+			seekerAddress,
+			seekerOnjob,
+			seekerImag,
+			seekerResume,
+			seekerUserid,
+			seekerHj,
+			seekerZzd,
+			seekerEvaluation,
+			seekerReward,
+			seekerQwgzlx,
+			seekerQwgzdd,
+			seekerQwxz,
+			seekerGzjl,
+			seekerXmjy,
+			seekerWydj
+    </sql>
+    <sql id="update_clause">
+        <trim suffixOverrides=",">
+            <if test="seekerName != null and seekerName !=''">
+                seekerName=#{seekerName},
+            </if>
+            <if test="seekerGender != null and seekerGender !=''">
+                seekerGender=#{seekerGender},
+            </if>
+            <if test="seekerBirth != null and seekerBirth !=''">
+                seekerBirth=#{seekerBirth},
+            </if>
+            <if test="seekerMarry != null and seekerMarry !=''">
+                seekerMarry=#{seekerMarry},
+            </if>
+            <if test="seekerEducation != null and seekerEducation !=''">
+                seekerEducation=#{seekerEducation},
+            </if>
+            <if test="seekerEmail != null and seekerEmail !=''">
+                seekerEmail=#{seekerEmail},
+            </if>
+            <if test="seekerAddress != null and seekerAddress !=''">
+                seekerAddress=#{seekerAddress},
+            </if>
+            <if test="seekerOnjob != null and seekerOnjob !=''">
+                seekerOnjob=#{seekerOnjob},
+            </if>
+            <if test="seekerImag != null and seekerImag !=''">
+                seekerImag=#{seekerImag},
+            </if>
+            <if test="seekerResume != null and seekerResume !=''">
+                seekerResume=#{seekerResume},
+            </if>
+            <if test="seekerUserid != null">
+                seekerUserid=#{seekerUserid},
+            </if>
+            <if test="seekerHj != null and seekerHj !=''">
+                seekerHj=#{seekerHj},
+            </if>
+            <if test="seekerZzd != null and seekerZzd !=''">
+                seekerZzd=#{seekerZzd},
+            </if>
+            <if test="seekerEvaluation != null and seekerEvaluation !=''">
+                seekerEvaluation=#{seekerEvaluation},
+            </if>
+            <if test="seekerReward != null and seekerReward !=''">
+                seekerReward=#{seekerReward},
+            </if>
+            <if test="seekerQwgzlx != null and seekerQwgzlx !=''">
+                seekerQwgzlx=#{seekerQwgzlx},
+            </if>
+            <if test="seekerQwgzdd != null and seekerQwgzdd !=''">
+                seekerQwgzdd=#{seekerQwgzdd},
+            </if>
+            <if test="seekerQwxz != null and seekerQwxz !=''">
+                seekerQwxz=#{seekerQwxz},
+            </if>
+            <if test="seekerGzjl != null and seekerGzjl !=''">
+                seekerGzjl=#{seekerGzjl},
+            </if>
+            <if test="seekerXmjy != null and seekerXmjy !=''">
+                seekerXmjy=#{seekerXmjy},
+            </if>
+            <if test="seekerWydj != null and seekerWydj !=''">
+                seekerWydj=#{seekerWydj},
+            </if>
+        </trim>
+    </sql>
+    <sql id="query_where_clause">
+        where 1=1
+        <trim suffixOverrides=",">
+            <if test="id != null">
+                and id=#{id}
+            </if>
+            <if test="seekerName != null and seekerName !=''">
+                and seekerName=#{seekerName}
+            </if>
+            <if test="seekerGender != null and seekerGender !=''">
+                and seekerGender=#{seekerGender}
+            </if>
+            <if test="seekerBirth != null and seekerBirth !=''">
+                and seekerBirth=#{seekerBirth}
+            </if>
+            <if test="seekerMarry != null and seekerMarry !=''">
+                and seekerMarry=#{seekerMarry}
+            </if>
+            <if test="seekerEducation != null and seekerEducation !=''">
+                and seekerEducation=#{seekerEducation}
+            </if>
+            <if test="seekerEmail != null and seekerEmail !=''">
+                and seekerEmail=#{seekerEmail}
+            </if>
+            <if test="seekerAddress != null and seekerAddress !=''">
+                and seekerAddress=#{seekerAddress}
+            </if>
+            <if test="seekerOnjob != null and seekerOnjob !=''">
+                and seekerOnjob=#{seekerOnjob}
+            </if>
+            <if test="seekerImag != null and seekerImag !=''">
+                and seekerImag=#{seekerImag}
+            </if>
+            <if test="seekerResume != null and seekerResume !=''">
+                and seekerResume=#{seekerResume}
+            </if>
+            <if test="seekerUserid != null">
+                and seekerUserid=#{seekerUserid}
+            </if>
+            <if test="seekerHj != null and seekerHj !=''">
+                and seekerHj=#{seekerHj}
+            </if>
+            <if test="seekerZzd != null and seekerZzd !=''">
+                and seekerZzd=#{seekerZzd}
+            </if>
+            <if test="seekerEvaluation != null and seekerEvaluation !=''">
+                and seekerEvaluation=#{seekerEvaluation}
+            </if>
+            <if test="seekerReward != null and seekerReward !=''">
+                and seekerReward=#{seekerReward}
+            </if>
+            <if test="seekerQwgzlx != null and seekerQwgzlx !=''">
+                and seekerQwgzlx=#{seekerQwgzlx}
+            </if>
+            <if test="seekerQwgzdd != null and seekerQwgzdd !=''">
+                and seekerQwgzdd=#{seekerQwgzdd}
+            </if>
+            <if test="seekerQwxz != null and seekerQwxz !=''">
+                and seekerQwxz=#{seekerQwxz}
+            </if>
+            <if test="seekerGzjl != null and seekerGzjl !=''">
+                and seekerGzjl=#{seekerGzjl}
+            </if>
+            <if test="seekerXmjy != null and seekerXmjy !=''">
+                and seekerXmjy=#{seekerXmjy}
+            </if>
+            <if test="seekerWydj != null and seekerWydj !=''">
+                and seekerWydj=#{seekerWydj}
+            </if>
+        </trim>
+    </sql>
+    <insert id="save" parameterType="Object" >
+        insert into
+        <include refid="table_name" />
+        (
+			seekerName,
+			seekerGender,
+			seekerBirth,
+			seekerMarry,
+			seekerEducation,
+			seekerEmail,
+			seekerAddress,
+			seekerOnjob,
+			seekerImag,
+			seekerResume,
+			seekerUserid,
+			seekerHj,
+			seekerZzd,
+			seekerEvaluation,
+			seekerReward,
+			seekerQwgzlx,
+			seekerQwgzdd,
+			seekerQwxz,
+			seekerGzjl,
+			seekerXmjy,
+			seekerWydj
+        )
+        values
+        (
+			#{seekerName},
+			#{seekerGender},
+			#{seekerBirth},
+			#{seekerMarry},
+			#{seekerEducation},
+			#{seekerEmail},
+			#{seekerAddress},
+			#{seekerOnjob},
+			#{seekerImag},
+			#{seekerResume},
+			#{seekerUserid},
+			#{seekerHj},
+			#{seekerZzd},
+			#{seekerEvaluation},
+			#{seekerReward},
+			#{seekerQwgzlx},
+			#{seekerQwgzdd},
+			#{seekerQwxz},
+			#{seekerGzjl},
+			#{seekerXmjy},
+			#{seekerWydj}
+        )
+    </insert>
+
+    <select id="queryById" resultMap="baseResultMap" parameterType="Object">
+        select
+        <include refid="base_column_list" />
+        from <include refid="table_name" /> where id = #{id}
+    </select>
+
+    <select id="queryAll" resultMap="baseResultMap" parameterType="Object">
+        select
+        <include refid="base_column_list" />
+        from <include refid="table_name" />
+    </select>
+
+    <select id="queryByCount" resultType="java.lang.Integer" parameterType="Object">
+        select count(1) from
+        <include refid="table_name" />
+        <include refid="query_where_clause" />
+    </select>
+
+    <select id="queryByList" resultMap="baseResultMap"	parameterType="Object">
+        select
+        <include refid="base_column_list"/>
+        from
+        <include refid="table_name" />
+        <include refid="query_where_clause"/>
+        order by id desc
+		${pageQueryCondition}
+    </select>
+
+    <select id="queryBySeeker" resultMap="baseResultMap"	parameterType="Object">
+        select
+        <include refid="base_column_list"/>
+        from
+        <include refid="table_name" />
+        <include refid="query_where_clause"/>
+        order by id desc
+    </select>
+
+    <update id="update" parameterType="Object" >
+        update <include refid="table_name" /> set <include refid="update_clause" /> where id = #{id}
+    </update>
+
+    <update id="updateResult" parameterType="Object" >
+        update <include refid="table_name" /> set <include refid="update_clause" /> where id = #{id}
+    </update>
+
+	<delete id="deleteById" parameterType="Object">
+		delete from <include refid="table_name" /> where id = #{id}
+	</delete>
+
+</mapper>   

@@ -1,0 +1,146 @@
+.thumbnail a img {
+	height: 160px;
+}
+
+.thumbnail .caption {
+	text-align: center;
+	height: 85px;
+}
+
+html,
+body {
+	position: relative;
+	height: 100%;
+}
+
+body {
+	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	color: #000;
+	margin: 0;
+	padding: 0;
+}
+p{
+	margin: 0;
+	padding: 0;
+}
+
+.top {
+	margin-top: 40px;
+}
+
+.bottom {
+	margin-bottom: 35px;
+}
+
+.center {
+	margin: 0px auto;
+	display: table;
+}
+
+.dark-gray {
+	color: darkgray;
+}
+
+.row-line {
+	bottom: 5px;
+}
+
+a {
+	text-decoration: none;
+	outline: 0;
+	color: #333;
+}
+
+a:hover {
+	color: #1296db;
+}
+
+.news_info {
+	display: flex;
+	align-items: center;
+}
+
+.news_desc {
+	margin-left: 20px;
+}
+
+.salary{
+	float: right;
+	size: 12px;
+	color: orangered;
+}
+
+.line{
+	margin-bottom: 20px;
+}
+
+.job_text{
+	font-size: 12px;
+	color: gray;
+}
+.company_text{
+	margin-left: 5px;
+}
+.user_text{
+	margin-left: 5px;
+	font-size: 12px;
+	color: darkgray;
+}
+
+.label-success{
+	color: green;
+}
+
+.label-danger{
+	color: orangered;
+}
+
+
+.footer {
+	margin-top: 20px;
+    background: #111;
+	font-size: 13px;
+	text-align: center;
+	color: white;
+	padding-top: 14px;
+	padding-bottom: 20px;
+	border-top: 1px solid #303030
+}
+
+.footer span {
+	margin: 0 .5em
+}
+
+.footer a {
+	color: white
+}
+
+.active{
+	color: orangered;
+	font-weight : bold;
+}
+
+.job-status{
+	color: darkgray;
+	font-size: 16px;
+}
+.job-name{
+	font-size: 35px;
+	font-weight: 300;
+}
+
+.job-salary{
+	margin-left: 10px;
+	color: orangered;
+	font-size: 30px;
+}
+
+.job-pos{
+	color: darkgray;
+	font-size: 14px;
+}
+
+.text{
+	padding: 10px;
+}
