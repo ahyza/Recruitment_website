@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+    <link rel="stylesheet" href="../lib/layui-v2.6.3/css/layui.css" media="all">
+    <link rel="stylesheet" href="../css/public.css" media="all">
+    <style>
+        /* 设置页面背景和布局的基础样式 */
+        
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        /* 调整iframe使其占满整个可视区域 */
+        
+        iframe {
+            width: 100vw;
+            /* 全宽度 */
+            height: 100vh;
+            /* 全高度 */
+            border: none;
+        }
+        /* 对iframe的父容器进行适应性布局 */
+        
+        .iframe-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 使用iframe加载本地页面并保持全屏显示 -->
+    <div class="iframe-container">
+        <iframe src="../web/Visual_website/web1/index.html"></iframe>
+    </div>
+</body>
+
+</html>

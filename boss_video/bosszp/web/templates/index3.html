@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Size Analysis</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/funnel.js"></script>
+    <script src="../static/js/company_size_visualization.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+        header {
+            background-color: #000000;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 600;
+        }
+        nav {
+            margin: 15px 0;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            padding: 8px 15px;
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        nav a:hover {
+            background-color: #357abd;
+        }
+        .chart-container {
+            width: 90%;
+            max-width: 1200px;
+            height: 400px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 20px;
+            }
+            nav a {
+                margin: 0 10px;
+                font-size: 14px;
+            }
+            .chart-container {
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>企业分析可视化</h1>
+        <nav>
+            <a href="#company_size_distribution">公司规模分布</a>
+            <a href="#salary_vs_company_size">公司规模与平均薪资</a>
+            <a href="#company_type_distribution">公司类型分布</a>
+            <a href="#job_market_analysis">就业环境分析</a>
+        </nav>
+    </header>
+
+    <div id="job_market_analysis" class="chart-container"></div>
+    <div id="company_size_distribution" class="chart-container"></div>
+    <div id="salary_vs_company_size" class="chart-container"></div>
+    <div id="company_type_distribution" class="chart-container"></div>
+</body>
+</html>

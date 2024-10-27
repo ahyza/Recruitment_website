@@ -1,0 +1,125 @@
+  <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>薪资数据可视化</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="../static/js/salary_visualization.js"></script>
+        <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <style>
+
+        body {
+    font-family: 'Nunito', sans-serif;
+    background: url('../static/img/img.png') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+        h1 {
+            text-align: center;
+            margin-top: 40px;
+            color: #333;
+            font-size: 36px;
+            font-weight: 600;
+        }
+
+        h2 {
+            text-align: left;
+            font-size: 26px;
+            font-weight: 600;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .chart-section {
+            background-color: #f9fbfd;
+            padding: 40px 20px;
+            margin-top: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .chart-section:nth-child(odd) {
+            background-color: #ffffff;
+        }
+
+        .chart-container {
+            margin: 20px 0;
+        }
+
+        #education_salary_chart,
+        #salary_chart,
+        #company_salary_chart {
+            width: 100%;
+            height: 400px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        #education_salary_chart:hover,
+        #salary_chart:hover,
+        #company_salary_chart:hover {
+            transform: scale(1.02);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            font-size: 14px;
+            margin-top: 40px;
+            border-radius: 0 0 10px 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>薪资数据可视化</h1>
+
+    <div class="container chart-section">
+        <h2>不同学历的平均薪资</h2>
+        <div class="chart-container">
+            <div id="education_salary_chart"></div>
+        </div>
+    </div>
+
+    <div class="container chart-section">
+        <h2>薪资分布区间</h2>
+        <div class="chart-container">
+            <div id="salary_chart"></div>
+        </div>
+    </div>
+
+    <div class="container chart-section">
+        <h2>公司薪资排行榜</h2>
+        <div class="chart-container">
+            <div id="company_salary_chart"></div>
+        </div>
+    </div>
+
+    <footer>
+        © 2024 薪资数据可视化 | Clear and structured design for enhanced data insight
+    </footer>
+</body>
+
+</html>

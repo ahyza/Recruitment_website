@@ -1,0 +1,147 @@
+  "menuInfo": [{
+            "title": "常规管理",
+            "icon": "fa fa-address-book",
+            "href": "",
+            "target": "_self",
+            "child": [
+
+                {
+                    "title": "返回招聘页面",
+                    "href": "http://localhost:8221/JobSys/index",
+                    "icon": "fa fa-reply",
+                    "target": "_top"
+                },
+                {
+                    "title": "数据分析模块",
+                    "href": "",
+                    "icon": "fa fa-meetup",
+                    "target": "",
+                    "child": [{
+                            "title": "主页",
+                            "href": "page/welcome-1.html",
+                            "icon": "fa fa-home",
+                            "target": "_self"
+                        },
+                        {
+                            "title": "Boss岗位分析可视化",
+                            "href": "page/menu.html",
+                            "icon": "fa fa-window-maximize",
+                            "target": "_self"
+                        },
+                        {
+                            "title": "薪资数据可视化",
+                            "href": "page/setting.html",
+                            "icon": "fa fa-gears",
+                            "target": "_self"
+                        },
+                        {
+                            "title": "行业分布分析",
+                            "href": "page/table.html",
+                            "icon": "fa fa-file-text",
+                            "target": "_self"
+                        },
+                        {
+                            "title": "企业分析可视化",
+                            "href": "page/form.html",
+                            "icon": "fa fa-file-text",
+                            "target": "_self"
+                        },
+                        {
+                            "title": "学历分析可视化",
+                            "href": "page/upload.html",
+                            "icon": "fa fa-file-text",
+                            "target": "_self"
+                        }
+
+                    ]
+                }
+
+
+
+
+            ]
+
+        }
+
+	<style>
+		body {
+			background-image: url('<%=path %>/static/img_login/loginbg.png');
+			background-size: cover; /* 确保背景图像覆盖整个背景 */
+		}
+		.main-body {
+			top: 50%;
+			left: 50%;
+			position: absolute;
+			transform: translate(-50%, -50%);
+			overflow: hidden;
+		}
+		.register-main {
+			width: 428px;
+			position: relative;
+		}
+		.register-main .register-top {
+			height: 117px;
+			background-color: #148be4;
+			border-radius: 12px 12px 0 0;
+			font-size: 30px;
+			color: #fff;
+			line-height: 117px;
+			text-align: center;
+		}
+		.register-main .register-bottom {
+			width: 428px;
+			background: #fff;
+			border-radius: 0 0 12px 12px;
+			padding-bottom: 53px;
+		}
+		.register-main .register-bottom .center {
+			width: 288px;
+			margin: 0 auto;
+			padding-top: 40px;
+			padding-bottom: 15px;
+		}
+		.register-main .register-bottom .item {
+			width: 288px;
+			height: 35px;
+			margin-bottom: 35px;
+			position: relative; /* 使下划线定位相对 */
+		}
+		.register-main .register-bottom .form-control {
+			display: inline-block;
+			width: 100%;
+			height: 38px;
+			padding: 0 10px;
+			border: none; /* 去掉边框 */
+			outline: none; /* 去掉聚焦时的轮廓 */
+			font-size: 14px;
+			letter-spacing: 0;
+			border-bottom: 1px solid #dae1e6; /* 添加灰色下划线 */
+			background: transparent; /* 背景透明 */
+		}
+		.register-main .register-bottom .register-btn {
+			width: 288px;
+			height: 40px;
+			background-color: #1E9FFF;
+			border-radius: 16px;
+			margin: 24px auto 0;
+			text-align: center;
+			line-height: 40px;
+			color: #fff;
+			font-size: 14px;
+			cursor: pointer;
+			border: none;
+		}
+		.login-link {
+			display: block;
+			text-align: center;
+			margin-top: 10px;
+			font-size: 14px;
+		}
+		.login-link a {
+			color: #1E9FFF;
+			text-decoration: none;
+		}
+		.login-link a:hover {
+			text-decoration: underline;
+		}
+	</style>
