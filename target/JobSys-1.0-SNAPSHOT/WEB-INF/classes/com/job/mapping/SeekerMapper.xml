@@ -248,6 +248,13 @@
 			#{seekerWydj}
         )
     </insert>
+    <select id="queryByName" parameterType="String" resultMap="baseResultMap">
+        SELECT
+        <include refid="base_column_list" />
+        FROM
+        <include refid="table_name" />
+        WHERE seekerName = #{seekerName}
+    </select>
 
     <select id="queryById" resultMap="baseResultMap" parameterType="Object">
         select
@@ -298,4 +305,5 @@
 		delete from <include refid="table_name" /> where id = #{id}
 	</delete>
 
-</mapper>   
+
+</mapper>

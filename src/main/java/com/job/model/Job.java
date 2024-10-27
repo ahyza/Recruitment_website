@@ -19,6 +19,24 @@ public class Job {
     private Integer jobStatus;
     private Company company;
 
+    public int getSalaryMin() {
+        return salaryMin;
+    }
+
+    public void setSalaryMin(int salaryMin) {
+        this.salaryMin = salaryMin;
+    }
+
+    public int getSalaryMax() {
+        return salaryMax;
+    }
+
+    public void setSalaryMax(int salaryMax) {
+        this.salaryMax = salaryMax;
+    }
+
+    private int salaryMin;
+    private int salaryMax;
     public Company getCompany() {
 		return company;
 	}

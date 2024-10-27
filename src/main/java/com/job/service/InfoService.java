@@ -3,14 +3,10 @@ package com.job.service;
 import com.job.model.Page;
 import com.job.mapper.InfoMapper;
 import com.job.model.Info;
-import com.job.service.InfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.*;
 
-/**
- * Created By FeastCoding.
- */
 @Service
 public class InfoService {
 
@@ -35,12 +31,14 @@ public class InfoService {
 
 	public List<Info> queryByList(Page page, Info info) {
 		String pageQueryCondition = " limit " + page.getStart() + " , " + page.getMaxRows();
-		Map<String, Object> paramsMap = new HashMap<String, Object>();
+		Map<String, Object> paramsMap = new HashMap<String,Object>();
 		paramsMap.put("infoTitle", info.getInfoTitle());
 		paramsMap.put("infoContent", info.getInfoContent());
 		paramsMap.put("infoTime", info.getInfoTime());
 		paramsMap.put("infoUserid", info.getInfoUserid());
 		paramsMap.put("infoType", info.getInfoType());
+		paramsMap.put("expectedSalary", info.getExpectedSalary()); // 新增
+		paramsMap.put("expectedLocation", info.getExpectedLocation()); // 新增
 		paramsMap.put("pageQueryCondition", pageQueryCondition);
 		return mapper.queryByList(paramsMap);
 	}

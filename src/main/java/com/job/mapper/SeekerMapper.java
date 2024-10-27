@@ -20,7 +20,7 @@ public interface SeekerMapper{
 	List<Seeker> queryBySeeker(Seeker model);
 
     Seeker queryById(Integer id);
-
+    Seeker queryByName(String seekerName);
     List<Seeker> queryAll();
 
 }

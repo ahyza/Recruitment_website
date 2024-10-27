@@ -47,13 +47,29 @@ public class SeekerController {
 		model.put("seeker", seeker);
 		return "behind/seeker_edit";
 	}
-	
-	@RequestMapping(value = "/detail", method = RequestMethod.GET)
-	public String detail(Seeker seeker, ModelMap model) {
+//
+//	@RequestMapping(value = "/detail", method = RequestMethod.GET)
+//	public String detail(Seeker seeker, ModelMap model) {
+//		seeker = seekerService.queryById(seeker.getId());
+//		model.put("seeker", seeker);
+//		return "behind/seeker_detail";
+//	}
+@RequestMapping(value = "/detail", method = RequestMethod.GET)
+public String detail(Seeker seeker, ModelMap model) {
+	// 如果传入了id，则通过id查询
+	if (seeker.getId() != null) {
 		seeker = seekerService.queryById(seeker.getId());
-		model.put("seeker", seeker);
-		return "behind/seeker_detail";
 	}
+	// 如果没有id但传入了seekerName，则通过seekerName查询
+	else if (seeker.getSeekerName() != null ) {
+		seeker = seekerService.queryByName(seeker.getSeekerName());
+	}
+
+//	 将查询到的求职者信息传递给前端
+	model.put("seeker", seeker);
+
+	return "behind/seeker_detail";
+}
 
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public String update(Seeker seeker, HttpServletRequest request) {

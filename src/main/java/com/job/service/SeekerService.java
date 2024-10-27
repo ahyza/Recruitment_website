@@ -68,6 +68,9 @@ public class SeekerService {
 	public Seeker queryById(Integer id) {
 		return mapper.queryById(id);
 	}
+	public Seeker queryByName(String seekerName) {
+		return mapper.queryByName(seekerName);
+	}
 
 	public List<Seeker> queryAll() {
 		return mapper.queryAll();

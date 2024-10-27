@@ -6,7 +6,7 @@ import com.job.model.Info;
 /**
  * Created By FeastCoding.
  */
-public interface InfoMapper{
+public interface InfoMapper {
     Integer save(Info model);
 
     void update(Info model);
@@ -16,11 +16,10 @@ public interface InfoMapper{
     int queryByCount(Info model);
 
     List<Info> queryByList(Map paramsMap);
-	
-	List<Info> queryByInfo(Info model);
+
+    List<Info> queryByInfo(Info model);
 
     Info queryById(Integer id);
 
     List<Info> queryAll();
-
 }

@@ -49,6 +49,9 @@ public class JobService {
 		paramsMap.put("companyId", job.getCompanyId());
 		paramsMap.put("jobStatus", job.getJobStatus());
 		paramsMap.put("pageQueryCondition", pageQueryCondition);
+		paramsMap.put("salaryMin", job.getSalaryMin());
+		paramsMap.put("salaryMax", job.getSalaryMax());
+
 		return mapper.queryByList(paramsMap);
 	}
 
@@ -74,11 +77,38 @@ public class JobService {
 		return false;
 	}
 
-	public List<Job> queryJobByName(String jobName) {
-		Job job = new Job();
-		job.setJobName(jobName);
-		return mapper.queryByJob(job);
+//	public List<Job> queryJobByName(String jobName) {
+//		Job job = new Job();
+//		job.setJobName(jobName);
+//		return mapper.queryByJob(job);
+//	}
+public List<Job> queryJobByName(String jobName, String jobXlyq, String salaryRange) {
+	Job job = new Job();
+	job.setJobName(jobName);
+	job.setJobXlyq(jobXlyq);
+
+
+	// 检查薪资范围
+	if (salaryRange != null ) {
+		String[] parts = salaryRange.split("-");
+		// 确保有两个部分
+		if (parts.length == 2) {
+			try {
+				int minSalary = Integer.parseInt(parts[0].replace("k", "000").trim());
+				int maxSalary = Integer.parseInt(parts[1].replace("k", "000").trim());
+				job.setSalaryMin(minSalary);
+				job.setSalaryMax(maxSalary);
+			} catch (NumberFormatException e) {
+				// 如果转换失败，可以选择记录日志或抛出异常
+				System.err.println("薪资范围格式错误: " + salaryRange);
+			}
+		}
 	}
+
+	// 调用 mapper 方法查询
+	return mapper.queryByJob(job);
+}
+
 
 	public List<Job> queryJobByType(String jobType) {
 		Job job = new Job();

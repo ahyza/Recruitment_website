@@ -11,6 +11,8 @@
         <result column="infoTime" property="infoTime"/>
         <result column="infoUserid" property="infoUserid"/>
         <result column="infoType" property="infoType"/>
+        <result column="expectedSalary" property="expectedSalary"/>
+        <result column="expectedLocation" property="expectedLocation"/>
         <association property="user" column="infoUserid" select="com.job.mapper.UserMapper.queryById"></association>
 	</resultMap>
 
@@ -26,6 +28,8 @@
 			infoContent,
 			infoTime,
 			infoUserid,
+        expectedSalary,
+        expectedLocation,
 			infoType
     </sql>
     <sql id="update_clause">
@@ -41,6 +45,12 @@
             </if>
             <if test="infoUserid != null">
                 infoUserid=#{infoUserid},
+            </if>
+            <if test="expectedSalary != null">
+                expectedSalary=#{expectedSalary},
+            </if>
+            <if test="expectedLocation != null">
+                expectedLocation=#{expectedLocation},
             </if>
             <if test="infoType != null">
                 infoType=#{infoType},
@@ -78,6 +88,8 @@
 			infoContent,
 			infoTime,
 			infoUserid,
+        expectedSalary,
+        expectedLocation,
 			infoType
         )
         values
@@ -86,6 +98,8 @@
 			#{infoContent},
 			#{infoTime},
 			#{infoUserid},
+			#{expectedSalary},
+			#{expectedLocation},
 			#{infoType}
         )
     </insert>
@@ -139,4 +153,4 @@
 		delete from <include refid="table_name" /> where id = #{id}
 	</delete>
 
-</mapper>   
+</mapper>

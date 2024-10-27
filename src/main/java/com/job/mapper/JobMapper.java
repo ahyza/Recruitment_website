@@ -2,6 +2,7 @@ package com.job.mapper;
 
 import java.util.*;
 import com.job.model.Job;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * Created By FeastCoding.
@@ -22,5 +23,6 @@ public interface JobMapper{
     Job queryById(Integer id);
 
     List<Job> queryAll();
+
 
 }

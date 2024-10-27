@@ -10,49 +10,62 @@ public class Info {
     private String infoTime;
     private Integer infoUserid;
     private Integer infoType;
+    private Double expectedSalary; // 预期薪资
+    private String expectedLocation; // 预期地点
     private User user;
 
     public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
-		this.user = user;
-	}
-	public Integer getId(){
-      return id;
+        return user;
     }
-    public void setId(Integer id){
-      this.id = id;
+    public void setUser(User user) {
+        this.user = user;
     }
-    public String getInfoTitle(){
-      return infoTitle;
+    public Integer getId() {
+        return id;
     }
-    public void setInfoTitle(String infoTitle){
-      this.infoTitle = infoTitle;
+    public void setId(Integer id) {
+        this.id = id;
     }
-    public String getInfoContent(){
-      return infoContent;
+    public String getInfoTitle() {
+        return infoTitle;
     }
-    public void setInfoContent(String infoContent){
-      this.infoContent = infoContent;
+    public void setInfoTitle(String infoTitle) {
+        this.infoTitle = infoTitle;
     }
-    public String getInfoTime(){
-      return infoTime;
+    public String getInfoContent() {
+        return infoContent;
     }
-    public void setInfoTime(String infoTime){
-      this.infoTime = infoTime;
+    public void setInfoContent(String infoContent) {
+        this.infoContent = infoContent;
     }
-    public Integer getInfoUserid(){
-      return infoUserid;
+    public String getInfoTime() {
+        return infoTime;
     }
-    public void setInfoUserid(Integer infoUserid){
-      this.infoUserid = infoUserid;
+    public void setInfoTime(String infoTime) {
+        this.infoTime = infoTime;
     }
-    public Integer getInfoType(){
-      return infoType;
+    public Integer getInfoUserid() {
+        return infoUserid;
     }
-    public void setInfoType(Integer infoType){
-      this.infoType = infoType;
+    public void setInfoUserid(Integer infoUserid) {
+        this.infoUserid = infoUserid;
     }
-
+    public Integer getInfoType() {
+        return infoType;
+    }
+    public void setInfoType(Integer infoType) {
+        this.infoType = infoType;
+    }
+    public Double getExpectedSalary() {
+        return expectedSalary;
+    }
+    public void setExpectedSalary(Double expectedSalary) {
+        this.expectedSalary = expectedSalary;
+    }
+    public String getExpectedLocation() {
+        return expectedLocation;
+    }
+    public void setExpectedLocation(String expectedLocation) {
+        this.expectedLocation = expectedLocation;
+    }
 }

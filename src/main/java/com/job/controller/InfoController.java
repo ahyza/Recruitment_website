@@ -37,6 +37,9 @@ public class InfoController {
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public String add(Info info, HttpServletRequest request) {
+		// 添加预期薪资和预期地点
+		info.setExpectedSalary(Double.parseDouble(request.getParameter("expectedSalary")));
+		info.setExpectedLocation(request.getParameter("expectedLocation"));
 		infoService.save(info);
 		return "redirect:list";
 	}
@@ -50,6 +53,9 @@ public class InfoController {
 
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public String update(Info info, HttpServletRequest request) {
+		// 更新预期薪资和预期地点
+		info.setExpectedSalary(Double.parseDouble(request.getParameter("expectedSalary")));
+		info.setExpectedLocation(request.getParameter("expectedLocation"));
 		infoService.update(info);
 		return "redirect:list";
 	}
@@ -59,5 +65,4 @@ public class InfoController {
 		infoService.deleteById(info.getId());
 		return "redirect:list";
 	}
-
 }

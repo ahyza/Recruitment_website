@@ -153,13 +153,37 @@ public class IndexController {
 	 * 
 	 * @return
 	 */
+//	@RequestMapping(value = "/searchJob")
+//	public String searchJob(@RequestParam("jobName") String jobName, ModelMap model) {
+//		List<Job> jobList = jobService.queryJobByName(jobName);
+//		model.put("jobList", jobList);
+//		return "front/recruitment";
+//	}
+
+//	@RequestMapping(value = "/searchJob")
+//	public String searchJob(@RequestParam(value = "jobName", required = false) String jobName,
+//							@RequestParam(value = "jobXlyq", required = false) String jobXlyq,
+//							ModelMap model) {
+//		// 调用 service 层方法，根据职位名称和学历要求进行查询
+//		List<Job> jobList = jobService.queryJobByName(jobName, jobXlyq);
+//		model.put("jobList", jobList);
+//		return "front/recruitment";  // 返回前端页面
+//	}
 	@RequestMapping(value = "/searchJob")
-	public String searchJob(@RequestParam("jobName") String jobName, ModelMap model) {
-		List<Job> jobList = jobService.queryJobByName(jobName);
+	public String searchJob(@RequestParam("jobName") String jobName,
+							@RequestParam("jobXlyq") String jobXlyq,
+							@RequestParam("salaryRange") String salaryRange,
+							ModelMap model)
+
+	{
+
+		List<Job> jobList = jobService.queryJobByName(jobName, jobXlyq, salaryRange);
+
 		model.put("jobList", jobList);
 		return "front/recruitment";
 	}
 
+	
 	/**
 	 * 根据分类查询职位信息
 	 * 
@@ -284,16 +308,20 @@ public class IndexController {
 	 * @return
 	 */
 	@RequestMapping(value = "/login")
-	public String login(User user, HttpSession session, ModelMap model) {
+	public String login(User user, HttpSession session, ModelMap model, @RequestParam(value = "ignoreError", required = false) String ignoreError) {
 		User u = userService.login(user);
 		if (null != u && u.getUserRole() != 3) {
 			session.setAttribute("user", u);
 			return "front/index";
 		} else {
-			model.put("mes", "用户名或密码错误");
+			// 只在未忽略错误时放入错误信息
+			if (ignoreError == null) {
+				model.put("mes", "用户名或密码错误");
+			}
 			return "front/login";
 		}
 	}
+
 
 	/**
 	 * 前台退出登录

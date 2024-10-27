@@ -197,6 +197,7 @@
         order by id desc
     </select>
 
+
     <update id="update" parameterType="Object" >
         update <include refid="table_name" /> set <include refid="update_clause" /> where id = #{id}
     </update>
